@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo app</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="app">
+        <div class="projects-area">
+            <div class="project-heading-list">
+                <h1 id="app-heading">Todo App</h1>
+                <h1 id="project-heading">Projects</h1>
+                <div class="projects-container">
+                    
+                </div>
+            </div>
+            <div class="add-project-btn-container">
+                <dialog id="project-dialog">
+                    <div class="cancel-btn" id="close-project">+</div>
+                    <input type="text" id="project-input" placeholder="Title" required />
+                    <button id="add-project-btn">
+                        Add Project
+                    </button>
+                </dialog>
+                <button id="prompt-project-dialog">
+                    Add Project
+                </button>
+            </div>
+        </div>
+
+
+        <div class="todos-area">
+            <div class="add-project-btn-container">
+                <dialog id="edit-todo-dialog">
+                    <h2 id="edit-todo-heading">
+                        Edit Todo
+                    </h2>
+                    <div class="cancel-btn" id="cancel-todo">+</div>
+                    <div class="data-area">
+                        <div class="input-textarea">
+                            <input type="text" placeholder="Title" id="edit-todo-input" required/>
+                            <textarea name="description" id="edit-todo-desc" cols="40" rows="6"  placeholder="Describe about your todo"></textarea>
+                        </div>
+                        <div class="dueDate-priority">
+                            <div class="date-holder">
+                                <label for="todo-due-date">Due date:</label>
+                                <input type="date" id="edit-todo-due-date" required />
+                            </div>
+                            <div class="priority-holder">
+                                <label for="todo-priority">Priority:</label>
+                                <select name="priority" id="edit-todo-priority">
+                                    <option value="low">Low</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="high">High</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="save-todo-btn">Save Todo</button>
+                </dialog>
+                <dialog id="todos-dialog">
+                    <div class="cancel-btn" id="close-todo">+</div>
+                    <div class="data-area">
+                        <div class="input-textarea">
+                            <input type="text" placeholder="Title" id="todo-input" required/>
+                            <textarea name="description" id="todo-desc" cols="40" rows="6"  placeholder="Describe about your todo"></textarea>
+                        </div>
+                        <div class="dueDate-priority">
+                            <div class="date-holder">
+                                <label for="todo-due-date">Due date:</label>
+                                <input type="date" id="todo-due-date" required />
+                            </div>
+                            <div class="priority-holder">
+                                <label for="todo-priority">Priority:</label>
+                                <select name="priority" id="todo-priority">
+                                    <option value="low">Low</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="high">High</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="add-todo-btn">Add Todo</button>
+                </dialog>
+                <button id="prompt-todo-dialog">
+                    Add Todo
+                </button>
+            </div>
+            <div class="todo-heading-list">
+                <h1 id="todo-heading">Todos</h1>
+                <div class="todos-container">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+</html>

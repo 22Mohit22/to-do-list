@@ -1,0 +1,325 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    transition: all .3s ease;
+}
+.app{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+#project-heading{
+    margin-top: 10px;
+}
+
+.projects-area{
+    width: 20%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-heading-list{
+    height: 100%;
+    width: 100% ;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.projects-container{
+    margin: 5px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    scrollbar-width: thin;
+}
+
+#prompt-project-dialog, #prompt-todo-dialog{
+    width: 100%;
+    height: 100%;
+    font-size: 25px;
+    border: none;
+    color: rgb(42, 42, 42);
+    background-color: rgb(55, 115, 255);
+    box-shadow: 0 0 5px #000000;
+    font-weight: bolder;
+    outline: none;
+    cursor: pointer;
+}
+
+#prompt-project-dialog:hover{
+    background-color: rgb(255, 255, 255);
+    color: rgb(55, 115, 255);
+}
+#prompt-project-dialog:active,#prompt-todo-dialog:active{
+    box-shadow: 0 0 20px rgb(55, 115, 255);
+}
+
+h1{
+    padding-left: 5px;
+}
+
+.todos-area{
+    width: 80%;
+    height: 100%;
+    color: rgb(236, 236, 236);
+    background-color: rgb(42, 42, 42);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.add-project-btn-container{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-heading-list{
+    height: 100%;
+    width: 100% ;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.todos-container{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    scrollbar-width: thin;
+}
+
+#prompt-todo-dialog{
+    background-color: rgb(55, 115, 255);
+    color: rgb(255, 255, 255);
+    box-shadow: 0 0 5px #000000;
+}
+
+#prompt-todo-dialog:hover{
+    background-color: rgb(255, 255, 255);
+    color: rgb(55, 115, 255);
+}
+
+/* dialog styling */
+
+dialog {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    height: 100px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 0 20px;
+    position: absolute;
+    top: -500px;
+    left: 600px;
+    transition: all .3s ease-out;
+    overflow: hidden;
+}
+
+dialog[open] {
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 0 20px;
+    position: absolute;
+    top: 100px;
+    left: 600px;
+}
+
+@starting-style {
+    dialog[open] {
+        border: none;
+        border-radius: 20px;
+        box-shadow: 0 0 20px;
+        position: absolute;
+        top: -500px;
+        left: 600px;
+    }
+}
+
+dialog::backdrop{
+    backdrop-filter: blur(0px);
+    transition: all .3s ease;
+}
+
+dialog[open]::backdrop {
+    backdrop-filter: blur(5px);
+}
+
+@starting-style {
+    dialog[open]::backdrop {
+        backdrop-filter: blur(0px);
+    }
+}
+
+#project-input,#todo-input,#edit-todo-input{
+    width: 280px;
+    border: none;
+    border-bottom: 2px solid black;
+    margin-top: 10px;
+    height: 40px;
+    padding-left: 5px;
+    font-size: 20px;
+    outline: none;
+}
+
+.cancel-btn,.del-project{
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 25px;
+    font-weight: bold;
+    color: red;
+    height: auto;
+    width: auto;
+    margin: 5px;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    transform: rotate(45deg);
+}
+
+#add-project-btn,#add-todo-btn,#save-todo-btn{
+    height: 40px;
+    width: 100%;
+    border: none;
+    border-bottom-right-radius: 19px;
+    border-bottom-left-radius: 19px;
+    font-size: 25px;
+    font-weight: bolder;
+    color: white;
+    background-color: rgb(55, 115, 255);
+    cursor: pointer;
+    outline: none;
+}
+
+#add-project-btn:hover,#add-todo-btn:hover,#save-todo-btn:hover{
+    background-color: rgb(255, 255, 255);
+    color: rgb(55, 115, 255);
+    box-shadow: 0 0 5px;
+}
+
+#todos-dialog,#edit-todo-dialog{
+    width: 500px;
+    height: 200px;
+    align-items: center;
+}
+
+.data-area{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.input-textarea{
+    width: 300px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#todo-desc,#edit-todo-desc{
+    margin-left: 5px;
+    resize: none;
+    border: 2px solid black;
+    outline: none;
+    padding-left: 5px;
+    box-sizing: border-box;
+}
+
+.dueDate-priority{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 60%;
+    width: 100%;
+    align-items: center;
+}
+
+
+/* project styles */
+
+.project{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 280px;
+    height: 30px;
+    font-size: 20px;
+    padding: 5px;
+    cursor: pointer;
+    background-color: rgb(55, 115, 255);
+    border-radius: 10px;
+    color: white;
+    margin-top: 5px;
+}
+.project:hover{
+    transform: translateX(10px);
+}
+.project.active{
+    transform: translateX(10px);
+}
+/* todo styles */
+
+.todo-item{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 30px;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-top: 5px;
+    padding: 5px;
+}
+
+.todo-data-area{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 500px;
+}
+
+.btns-area{
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+}
+
+.btns-area>button{
+    width: 100px;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+/* edit todo styles */
+
+#edit-todo-heading{
+    position: absolute;
+}
